@@ -23,7 +23,7 @@ public class BookDataFormData {
 	private String yearOfPublication;
 
 	@NotEmpty(message = "{empty.bookDataFormData.isbn}")
-	@ISBN(message = "{notvalid.bookDataFormData.isbn}")
+	@ISBN
 	private String isbn;
 
 	@NotEmpty(message = "{empty.bookDataFormData.author}")
