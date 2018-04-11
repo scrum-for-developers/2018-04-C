@@ -19,7 +19,7 @@ public class BookDataFormData {
 
 	@NotEmpty
 	@Numeric
-	@Length(message = "{invalid.length.bookDataFormData.yearOfPublication}", min = 4, max = 4)
+	@Length(message = "{bookDataFormData.yearOfPublication.length.invalid}", min = 4, max = 4)
 	private String yearOfPublication;
 
 	@NotEmpty
