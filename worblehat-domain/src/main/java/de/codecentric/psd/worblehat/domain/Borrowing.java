@@ -20,6 +20,10 @@ public class Borrowing implements Serializable {
 
 	private String borrowerEmailAddress;
 
+	public Date getBorrowDate() {
+		return borrowDate;
+	}
+
 	@Temporal(TemporalType.DATE)
 	private Date borrowDate;
 

@@ -1,6 +1,5 @@
 package de.codecentric.psd.worblehat.domain;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -10,7 +9,9 @@ import java.util.Set;
  */
 public interface BookService {
 
-	void returnAllBooksByBorrower(String string);
+    List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress);
+
+    void returnAllBooksByBorrower(String string);
 
 	Optional<Borrowing> borrowBook(String isbn, String borrower);
 
