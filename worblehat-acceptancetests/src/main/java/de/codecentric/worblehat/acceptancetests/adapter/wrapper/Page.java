@@ -1,18 +1,16 @@
 package de.codecentric.worblehat.acceptancetests.adapter.wrapper;
 
 public enum Page {
-    BOOKLIST("bookList"),
-    INSERTBOOKS("insertBooks"),
-    BORROWBOOK("borrow"),
+    BOOKLIST("bookList"), INSERTBOOKS("insertBooks"), BORROWBOOK("borrow"), RETURNSINGLEBOOK("returnSingleBook"),
     RETURNBOOKS("returnAllBooks");
 
     private String url;
 
-    Page(String url){
+    Page(String url) {
         this.url = url;
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return url;
     }
 }

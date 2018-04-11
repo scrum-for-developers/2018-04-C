@@ -1,6 +1,5 @@
 package de.codecentric.psd.worblehat.domain;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -10,17 +9,19 @@ import java.util.Set;
  */
 public interface BookService {
 
-	void returnAllBooksByBorrower(String string);
+    void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
 
-	Optional<Borrowing> borrowBook(String isbn, String borrower);
+    void returnAllBooksByBorrower(String borrowerEmailAddress);
 
-	Set<Book> findBooksByIsbn(String isbn);
+    Optional<Borrowing> borrowBook(String isbn, String borrower);
 
-	List<Book> findAllBooks();
+    Set<Book> findBooksByIsbn(String isbn);
 
-	Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication);
+    List<Book> findAllBooks();
 
-	boolean bookExists(String isbn);
+    Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication);
 
-	void deleteAllBooks();
+    boolean bookExists(String isbn);
+
+    void deleteAllBooks();
 }
