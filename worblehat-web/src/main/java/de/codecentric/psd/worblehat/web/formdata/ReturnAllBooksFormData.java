@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class ReturnAllBooksFormData {
 
-	@NotEmpty(message = "{empty.returnAllBookFormData.emailAddress}") 
+	@NotEmpty
 	@Email
 	private String emailAddress;
 
