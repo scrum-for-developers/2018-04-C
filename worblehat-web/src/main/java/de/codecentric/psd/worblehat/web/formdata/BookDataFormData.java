@@ -29,7 +29,6 @@ public class BookDataFormData {
     @NotEmpty
     private String author;
 
-    @NotEmpty
     private String description;
 
     /**
