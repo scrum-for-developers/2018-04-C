@@ -9,6 +9,8 @@ import java.util.Set;
  */
 public interface BookService {
 
+    List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress);
+
     void returnAllBooksByBorrower(String string);
 
     Optional<Borrowing> borrowBook(String isbn, String borrower);

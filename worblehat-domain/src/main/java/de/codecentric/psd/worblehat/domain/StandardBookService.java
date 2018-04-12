@@ -28,6 +28,13 @@ public class StandardBookService implements BookService {
     private BorrowingRepository borrowingRepository;
 
     private BookRepository bookRepository;
+    
+    @Override
+	public List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress) {
+		List<Borrowing> borrowingsByUser = borrowingRepository
+				.findBorrowingsByBorrower(borrowerEmailAddress);
+		return borrowingsByUser;
+	}
 
     @Override
     public void returnAllBooksByBorrower(String borrowerEmailAddress) {
