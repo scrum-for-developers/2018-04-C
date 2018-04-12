@@ -2,6 +2,7 @@ package de.codecentric.psd.worblehat.domain;
 
 import java.io.Serializable;
 import javax.annotation.Nonnull;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Book implements Serializable {
 
     private int yearOfPublication;
 
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @OneToOne(mappedBy = "borrowedBook", orphanRemoval = true)
@@ -121,9 +123,9 @@ public class Book implements Serializable {
         return borrowing;
     }
 
-	boolean isSameCopy(@Nonnull Book book) {
-		return getTitle().equals(book.title) && getAuthor().equals(book.author) && getEdition().equals(book.edition);
-	}
+    boolean isSameCopy(@Nonnull Book book) {
+        return getTitle().equals(book.title) && getAuthor().equals(book.author) && getEdition().equals(book.edition);
+    }
 
     public void borrowNowByBorrower(String borrowerEmailAddress) {
         if (borrowing == null) {
