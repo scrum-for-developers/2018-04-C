@@ -41,10 +41,13 @@
 				Added book validation, ISBN unique per book edition.
 			</action>
 			<action dev="betaworblers" type="update">
-				Add burrowed books list
+				Add borrowed books list
 			</action>
 			<action dev="betaworblers" type="update">
 				Added application version to pages.
+			</action>
+			<action dev="betaworblers" type="update">
+				Add description to every book.
 			</action>
 		</release>
 	</body>
