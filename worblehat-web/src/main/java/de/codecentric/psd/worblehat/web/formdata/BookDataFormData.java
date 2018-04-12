@@ -10,23 +10,23 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class BookDataFormData {
 
-	@NotEmpty(message = "{empty.bookDataFormData.title}")
+	@NotEmpty
 	private String title;
 
-	@NotEmpty(message = "{empty.bookDataFormData.edition}")
-	@Numeric(message = "{notvalid.bookDataFormData.edition}")
+	@NotEmpty
+	@Numeric
 	private String edition;
 
-	@NotEmpty(message = "{empty.bookDataFormData.yearOfPublication}")
-	@Numeric(message = "{notvalid.bookDataFormData.yearOfPublication}")
-	@Length(message = "{invalid.length.bookDataFormData.yearOfPublication}", min = 4, max = 4)
+	@NotEmpty
+	@Numeric
+	@Length(message = "{bookDataFormData.yearOfPublication.length.invalid}", min = 4, max = 4)
 	private String yearOfPublication;
 
-	@NotEmpty(message = "{empty.bookDataFormData.isbn}")
-	@ISBN(message = "{notvalid.bookDataFormData.isbn}")
+	@NotEmpty
+	@ISBN
 	private String isbn;
 
-	@NotEmpty(message = "{empty.bookDataFormData.author}")
+	@NotEmpty
 	private String author;
 
 	public String getYearOfPublication() {
