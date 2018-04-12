@@ -100,5 +100,11 @@ public class StandardBookService implements BookService {
 		bookRepository.deleteAll();
 	}
 
+	@Override
+	public Set<Book> findBooksByEdition(String edition) {
+		return bookRepository.findByEdition(edition); //null if not found
+
+	}
+
 
 }
