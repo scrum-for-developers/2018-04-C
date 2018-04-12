@@ -1,39 +1,45 @@
 package de.codecentric.psd.worblehat.web.controller;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.nullValue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.Set;
+
+import de.codecentric.psd.worblehat.domain.Book;
+import de.codecentric.psd.worblehat.domain.BookAlreadyBorrowedException;
+import de.codecentric.psd.worblehat.domain.BookService;
+import de.codecentric.psd.worblehat.domain.Borrowing;
+import de.codecentric.psd.worblehat.web.formdata.BookBorrowFormData;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.MapBindingResult;
 import org.springframework.validation.ObjectError;
-import de.codecentric.psd.worblehat.domain.Book;
-import de.codecentric.psd.worblehat.domain.BookService;
-import de.codecentric.psd.worblehat.domain.Borrowing;
-import de.codecentric.psd.worblehat.web.formdata.BookBorrowFormData;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.nullValue;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class BorrowBookControllerTest {
 
     private BookService bookService;
 
-    private BorrowBookController borrowBookController;
+    private  BorrowBookController borrowBookController;
 
     private BindingResult bindingResult;
 
     private BookBorrowFormData bookBorrowFormData;
 
-    private static final Book TEST_BOOK = new Book("title", "author", "edition", "isbn", 2016, "description");
+    private static final Book TEST_BOOK = new Book("title", "author", "edition", "isbn", 2016);
 
     public static final String BORROWER_EMAIL = "someone@codecentric.de";
 
