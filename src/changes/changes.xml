@@ -40,6 +40,9 @@
 			<action dev="betaworblers" type="update">
 				Added book validation, ISBN unique per book edition.
 			</action>
+			<action dev="betaworblers" type="update">
+				Add burrowed books list
+			</action>
 		</release>
 	</body>
 </document>
