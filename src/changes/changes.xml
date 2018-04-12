@@ -43,6 +43,9 @@
 			<action dev="betaworblers" type="update">
 				Add burrowed books list
 			</action>
+			<action dev="betaworblers" type="update">
+				Added application version to pages.
+			</action>
 		</release>
 	</body>
 </document>
