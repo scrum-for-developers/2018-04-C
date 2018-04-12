@@ -36,6 +36,9 @@
 		</release>
 
 		<release version="1.2" date="2018-04-12"
+		<action dev="betaworblers" type="update">
+			Add burrowed books list
+		</action>
 			description="Really Awesome Release">
 
 		</release>
