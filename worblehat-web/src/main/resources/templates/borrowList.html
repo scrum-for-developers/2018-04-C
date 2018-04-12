@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Borrow book - Worblehat Bookmanager</title>
+    <title>Borrowed book list - Worblehat Bookmanager</title>
 </head>
 <body>
-    <h1>Borrow Book</h1>
+    <h1>Borrowed Books List</h1>
 
     <form th:object="${borrowListFormData}" method="POST">
         Email:<input id="email" type="text" th:field="*{email}" />
@@ -12,7 +12,6 @@
         <br />
         <input type="submit" id="borrowBook" value="Display borrower books" />
         <hr />
-        <a th:href="@{/}">Back to Home</a>
     </form>
 
     <table class="borrowList">
