@@ -113,11 +113,11 @@ public class Library {
 		Set<Book> books = bookService.findBooksByIsbn(isbn);
 
 		for (Book book : books) {
-			if (book.getEdition() != edition) books.remove(book);
+			if (edition.equals(book.getEdition())) books.remove(book);
 		}
 		assertThat(books.size(), is(copies));
-		//assertThat(books, everyItem(hasProperty("edition", is(edition))));
 	}
+
 	private void waitForServerResponse() {
 		// normally you would have much better mechanisms for waiting for a
 		// server response. We are choosing a simple solution for the sake of this
