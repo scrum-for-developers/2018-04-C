@@ -13,7 +13,7 @@ And The library contains no books
 
 Examples:
  
-| isbn       | author           | title     |edition    | year  | message                                     |
-| 0XXXXXXXX5 | Terry Pratchett  | Sourcery  | 1         | 1989  | Please enter a valid 10 character long ISBN |
-| 0552131075 | Terry Pratchett  | Sourcery  | X         | 1989  | Please enter a numeric value                |
+| isbn       | author           | title     |edition    | year  | message                                           |
+| 0XXXXXXXX5 | Terry Pratchett  | Sourcery  | 1         | 1989  | Please enter a valid 10 or 13 character long ISBN |
+| 0552131075 | Terry Pratchett  | Sourcery  | X         | 1989  | Please enter a numeric value                      |
 
