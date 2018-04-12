@@ -13,16 +13,15 @@ public interface BookService {
 
     void returnAllBooksByBorrower(String string);
 
-    Optional<Borrowing> borrowBook(String isbn, String borrower);
+	Optional<Borrowing> borrowBook(String isbn, String borrower);
 
-    Set<Book> findBooksByIsbn(String isbn);
+	Set<Book> findBooksByIsbn(String isbn);
 
-    List<Book> findAllBooks();
+	List<Book> findAllBooks();
 
-    Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication,
-            String description);
+	Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication);
 
-    boolean bookExists(String isbn);
+	boolean bookExists(String isbn);
 
-    void deleteAllBooks();
+	void deleteAllBooks();
 }
