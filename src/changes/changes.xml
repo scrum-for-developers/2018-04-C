@@ -53,6 +53,9 @@
 			<action dev="betaworblers" type="update">
 				Add description to every book.
 			</action>
+			<action dev="betaworblers" type="update">
+				Add ability to enter a 13 char isbn.
+			</action>
 		</release>
 	</body>
 </document>
