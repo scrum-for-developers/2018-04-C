@@ -1,12 +1,9 @@
 package de.codecentric.psd.worblehat.domain;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Optional;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 
 public class BookTest {
 
@@ -14,26 +11,29 @@ public class BookTest {
 
     @Before
     public void setup() {
-        BOOK = new Book("Titel", "Author", "2", "1", 1234);
+        BOOK = new Book("Titel", "Author", "2", "1", 1234, "Description");
     }
 
     @Test
     public void shouldReturnFalseWhenAuthorisDifferent() {
-        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(), BOOK.getYearOfPublication());
+        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(),
+            BOOK.getYearOfPublication(), BOOK.getDescription());
         anotherCopy.setAuthor("Bene");
         assertThat(BOOK.isSameCopy(anotherCopy), is(false));
     }
 
     @Test
     public void shouldReturnFalseWhenTitleisDifferent() {
-        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(), BOOK.getYearOfPublication());
+        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(),
+            BOOK.getYearOfPublication(), BOOK.getDescription());
         anotherCopy.setTitle("Lord of the Rings");
         assertThat(BOOK.isSameCopy(anotherCopy), is(false));
     }
 
     @Test
     public void shouldReturnTrueWhenAllButTitleAndAuthorAreDifferent() {
-        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(), BOOK.getYearOfPublication());
+        Book anotherCopy = new Book(BOOK.getTitle(), BOOK.getAuthor(), BOOK.getEdition(), BOOK.getIsbn(),
+            BOOK.getYearOfPublication(), BOOK.getDescription());
         anotherCopy.setEdition("2000");
         anotherCopy.setIsbn("123456789X");
         anotherCopy.setYearOfPublication(2010);
