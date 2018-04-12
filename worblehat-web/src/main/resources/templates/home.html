@@ -12,7 +12,8 @@
     <li><a th:href="@{/borrow}">Borrow Book</a></li>
     <li><a th:href="@{/returnAllBooks}">Return all Books</a></li>
 </ul>
-
-<p style="font-size:12px;" th:text="${@environment.getProperty('info.version')}">Version: </p>
+    <footer layout:fragment="footer">
+        <p style="font-size:12px;" th:text="${'Version: ' + @environment.getProperty('info.version')}"></p>
+    </footer>
 </body>
 </html>
