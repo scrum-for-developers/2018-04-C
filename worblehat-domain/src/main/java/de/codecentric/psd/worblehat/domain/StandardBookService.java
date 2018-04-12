@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class StandardBookService implements BookService {
 
     public StandardBookService() {
-
+        // Do nothing because of other Constructor
     }
 
     @Autowired
@@ -28,13 +28,12 @@ public class StandardBookService implements BookService {
     private BorrowingRepository borrowingRepository;
 
     private BookRepository bookRepository;
-    
+
     @Override
-	public List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress) {
-		List<Borrowing> borrowingsByUser = borrowingRepository
-				.findBorrowingsByBorrower(borrowerEmailAddress);
-		return borrowingsByUser;
-	}
+    public List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress) {
+        List<Borrowing> borrowingsByUser = borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
+        return borrowingsByUser;
+    }
 
     @Override
     public void returnAllBooksByBorrower(String borrowerEmailAddress) {
