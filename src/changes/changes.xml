@@ -40,7 +40,9 @@
 			Add burrowed books list
 		</action>
 			description="Really Awesome Release">
-
+			<action dev="betaworblers" type="update">
+				Added book validation, ISBN unique per book edition.
+			</action>
 		</release>
 	</body>
 </document>
