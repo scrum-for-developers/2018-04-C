@@ -133,6 +133,11 @@ public class Book implements Serializable {
         }
     }
 
+    public boolean isBorrowed() {
+        if (borrowing == null) return false;
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", edition='" + edition + '\'' + ", isbn='"
