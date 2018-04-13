@@ -26,5 +26,7 @@ public interface BookService {
 
     boolean bookExists(String isbn);
 
-    void deleteAllBooks();
+	void deleteAllBooks();
+
+	Set<Book> findBooksByEdition(String edition);
 }
