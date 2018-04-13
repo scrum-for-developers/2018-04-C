@@ -76,20 +76,25 @@ public class StandardBookService implements BookService {
         if (!bookFromRepo.isPresent() || book.isSameCopy(bookFromRepo.get())) {
             return Optional.of(bookRepository.save(book));
         } else {
-            return Optional.empty();
+          return Optional.empty();
         }
     }
 
-    @Override
-    public boolean bookExists(String isbn) {
-        Set<Book> books = bookRepository.findByIsbn(isbn);
-        return !books.isEmpty();
-    }
+	@Override
+	public boolean bookExists(String isbn) {
+		Set<Book> books = bookRepository.findByIsbn(isbn);
+		return !books.isEmpty();
+	}
 
-    @Override
-    public void deleteAllBooks() {
-        borrowingRepository.deleteAll();
-        bookRepository.deleteAll();
-    }
+	@Override
+	public void deleteAllBooks() {
+		borrowingRepository.deleteAll();
+		bookRepository.deleteAll();
+	}
 
+	@Override
+	public Set<Book> findBooksByEdition(String edition) {
+		return bookRepository.findByEdition(edition); //null if not found
+
+	}
 }
