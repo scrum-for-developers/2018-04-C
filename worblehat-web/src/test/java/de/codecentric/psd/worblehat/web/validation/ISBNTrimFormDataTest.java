@@ -32,4 +32,28 @@ public class ISBNTrimFormDataTest {
         assertThat(isbn13, is(bookDataFormData.getIsbn()));
     }
 
+    @Test
+    public void TestISBNMinusReplaceInFormData() {
+
+        BookBorrowFormData bookBorrowFormData = new BookBorrowFormData();
+        BookDataFormData bookDataFormData = new BookDataFormData();
+
+        String isbn10 = "014139739X";
+        String checkIsbn10 = "014139739X";
+        String isbn13 = "978-0141397399";
+        String checkIsbn13 = "9780141397399";
+
+        bookBorrowFormData.setIsbn(" " + isbn10 + " ");
+        bookDataFormData.setIsbn(" " + isbn10 + " ");
+
+        assertThat(checkIsbn10, is(bookBorrowFormData.getIsbn()));
+        assertThat(checkIsbn10, is(bookDataFormData.getIsbn()));
+
+        bookBorrowFormData.setIsbn(" " + isbn13 + " ");
+        bookDataFormData.setIsbn(" " + isbn13 + " ");
+
+        assertThat(checkIsbn13, is(bookBorrowFormData.getIsbn()));
+        assertThat(checkIsbn13, is(bookDataFormData.getIsbn()));
+    }
+
 }

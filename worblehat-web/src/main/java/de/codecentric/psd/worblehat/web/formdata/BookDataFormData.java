@@ -58,7 +58,7 @@ public class BookDataFormData {
     }
 
     public void setIsbn(String isbn) {
-        this.isbn = isbn.trim();
+        this.isbn = isbn.trim().replaceAll("-", "");
     }
 
     public String getAuthor() {
