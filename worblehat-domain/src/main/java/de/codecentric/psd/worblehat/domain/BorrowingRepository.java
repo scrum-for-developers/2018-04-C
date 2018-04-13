@@ -9,8 +9,11 @@ import java.util.List;
 public interface BorrowingRepository extends JpaRepository<Borrowing, Long> {
 
     @Query("SELECT b from Borrowing b WHERE b.borrowedBook = :book")
-    public Borrowing findBorrowingForBook(@Param("book")Book book);
+    Borrowing findBorrowingForBook(@Param("book")Book book);
 
     @Query("SELECT b from Borrowing b WHERE b.borrowerEmailAddress = :borrowerEmailAddress")
     List<Borrowing> findBorrowingsByBorrower(@Param("borrowerEmailAddress") String borrowerEmailAddress);
+
+    @Query()    // TODO
+    void delete(Book book);
 }

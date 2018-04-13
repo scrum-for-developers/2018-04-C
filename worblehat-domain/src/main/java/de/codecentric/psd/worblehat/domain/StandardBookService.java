@@ -93,9 +93,9 @@ public class StandardBookService implements BookService {
     }
 
     @Override
-    public void deleteBook(Book book) throws BookAlreadyBorrowedException {
-        if (book.isBorrowed()) {
-            throw new BookAlreadyBorrowedException("Book is already borrowed.");
+    public void deleteBook(Book book) {
+        if (!book.isBorrowed()) {
+            bookRepository.delete(book);
         }
         // TODO
     }

@@ -26,5 +26,5 @@ public interface BookService {
 
     void deleteAllBooks();
 
-    void deleteBook(Book book) throws BookAlreadyBorrowedException;
+    void deleteBook(Book book);
 }
