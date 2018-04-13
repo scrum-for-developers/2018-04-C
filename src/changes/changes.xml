@@ -62,6 +62,9 @@
             <action dev="betaworblers" type="update">
                 Updated ISBN handling to enable customer to copy amazon ISBN numbers without complications.
             </action>
+            <action dev="betaworblers" type="update">
+                Add ability to unburrow single books
+            </action>
 		</release>
 	</body>
 </document>
