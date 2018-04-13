@@ -15,7 +15,9 @@
     <li><a th:href="@{/returnAllBooks}">Return all Books</a></li>
 </ul>
     <footer th:fragment="footer">
-        <img src="http://thecatapi.com/api/images/get?format=src"/>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,size=small,type=png)}"/>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,type=gif)}"/>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,size=small,type=jpg)}"/>
         <p style="font-size:12px;" th:text="${'Version: ' + @environment.getProperty('info.version') + ' ISO CERTIFIED!!!!!!!!!!!!!!!!'}"></p>
     </footer>
 </body>
