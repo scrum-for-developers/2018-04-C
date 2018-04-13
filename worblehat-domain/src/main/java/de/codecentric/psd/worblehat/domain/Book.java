@@ -17,6 +17,14 @@ public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -133,9 +141,15 @@ public class Book implements Serializable {
         }
     }
 
+    public boolean isBorrowed() {
+        if (borrowing == null) return false;
+        return true;
+    }
+
     @Override
     public String toString() {
         return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", edition='" + edition + '\'' + ", isbn='"
             + isbn + '\'' + ", yearOfPublication=" + yearOfPublication + '\'' + ", description=" + description + '}';
     }
+
 }

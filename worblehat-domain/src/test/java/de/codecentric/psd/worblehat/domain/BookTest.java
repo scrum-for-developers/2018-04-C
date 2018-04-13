@@ -59,4 +59,16 @@ public class BookTest {
         BOOK.borrowNowByBorrower("a@bc.ru");
         assertThat(BOOK.getBorrowing().getBorrowerEmailAddress(), is("a@bc.de"));
     }
+
+    @Test
+    public void knowsThatItIsNotBorrowedWhenNotBorrowed() {
+        assertThat(BOOK.isBorrowed(), is(false));
+    }
+
+    @Test
+    public void knowsThatItIsBorrowedWhenBorrowed() {
+        BOOK.borrowNowByBorrower("a@bc.de");
+        assertThat(BOOK.isBorrowed(), is(true));
+    }
+
 }

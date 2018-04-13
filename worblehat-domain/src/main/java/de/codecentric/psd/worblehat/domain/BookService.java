@@ -13,6 +13,8 @@ public interface BookService {
 
     void returnAllBooksByBorrower(String string);
 
+    Optional<Book> findBookById(String id);
+
     void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
 
     Optional<Borrowing> borrowBook(String isbn, String borrower);
@@ -26,7 +28,10 @@ public interface BookService {
 
     boolean bookExists(String isbn);
 
-	void deleteAllBooks();
+    void deleteAllBooks();
 
-	Set<Book> findBooksByEdition(String edition);
+    void deleteBook(Book book);
+
+	  Set<Book> findBooksByEdition(String edition);
+
 }

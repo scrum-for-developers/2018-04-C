@@ -7,11 +7,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -222,4 +219,19 @@ public class StandardBookServiceTest {
         verify(bookRepository).deleteAll();
         verify(borrowingRepository).deleteAll();
     }
+
+    @Test
+    public void shouldDeleteANonBorrowedBook() {
+        bookService.deleteBook(aBook);
+        verify(bookRepository).delete(aBook);
+    }
+
+    @Test
+    public void shouldNotDeleteABorrowedBook() {
+        bookService.deleteBook(aBorrowedBook);
+        verifyZeroInteractions(bookRepository);
+
+    }
+
+
 }
