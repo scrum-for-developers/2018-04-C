@@ -57,5 +57,8 @@
 				Add ability to enter a 13 char isbn.
 			</action>
 		</release>
+		<release version="1.4" date="2018-04-13"
+			description="MUHAHA we are done">
+		</release>
 	</body>
 </document>
