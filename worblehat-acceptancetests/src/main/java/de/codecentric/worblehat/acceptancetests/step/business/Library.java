@@ -1,22 +1,20 @@
 package de.codecentric.worblehat.acceptancetests.step.business;
 
-import java.sql.SQLException;
-import java.util.*;
-
-import de.codecentric.psd.worblehat.domain.*;
-import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
-import org.jbehave.core.annotations.Then;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasProperty;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Then;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+import de.codecentric.psd.worblehat.domain.Book;
+import de.codecentric.psd.worblehat.domain.BookService;
 
 @Component("Library")
 public class Library {
@@ -42,7 +40,7 @@ public class Library {
 	public void createLibraryWithSingleBookWithGivenIsbn(String isbn){
 		Book book = DemoBookFactory.createDemoBook().withISBN(isbn).build();
 		bookService.createBook(book.getTitle(), book.getAuthor(), book.getEdition(),
-				isbn, book.getYearOfPublication());
+      isbn, book.getYearOfPublication(), book.getDescription());
 	}
 
 	// just an example of how a step looks that is different from another one, after the last parameter
@@ -54,12 +52,11 @@ public class Library {
 				.withTitle(title)
 				.build();
 		bookService.createBook(book.getTitle(), book.getAuthor(), book.getEdition(),
-				isbn, book.getYearOfPublication());
+      isbn, book.getYearOfPublication(), book.getDescription());
 	}
 
 	@Given("borrower $borrower has borrowed books $isbns")
-	public void borrower1HasBorrowerdBooks(String borrower,
-										  String isbns) {
+	public void borrower1HasBorrowerdBooks(String borrower, String isbns) {
 		borrowerHasBorrowedBooks(borrower, isbns);
 	}
 
@@ -85,12 +82,12 @@ public class Library {
 	// *****************
 	// *** W H E N *****
 	// *****************
-	
+
 	// *****************
 	// *** T H E N *****
 	// *****************
-	
-	
+
+
 	@Then("the library contains only the book with $isbn")
 	public void shouldContainOnlyOneBook(String isbn) {
 		waitForServerResponse();
@@ -117,8 +114,4 @@ public class Library {
 			// pass
 		}
 	}
-
-
-	
-
 }
