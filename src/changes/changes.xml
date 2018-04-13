@@ -27,38 +27,50 @@
 
 		<release version="1.1" date="2018-04-11"
 			description="Poor, Next-Time-Better Release">
-			<action dev="betaworblers" type="update">
+			<action dev="fin" type="update">
 				Update Spring Boot Version.
 			</action>
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Give more useful error messages.
 			</action>
 		</release>
 
 		<release version="1.2" date="2018-04-12"
 			description="Really Awesome Release">
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Added book validation, ISBN unique per book edition.
 			</action>
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Add borrowed books list
 			</action>
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Added application version to pages.
 			</action>
 		</release>
 
 		<release version="1.3" date="2018-04-12"
 			description="Even More Awesome Release">
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Add description to every book.
 			</action>
-			<action dev="betaworblers" type="update">
+			<action dev="finalizers" type="update">
 				Add ability to enter a 13 char isbn.
 			</action>
 		</release>
 		<release version="1.4" date="2018-04-13"
 			description="MUHAHA we are done">
+            <action dev="finalizers" type="update">
+                Updated ISBN handling to enable customer to copy amazon ISBN numbers without complications.
+            </action>
+            <action dev="finalizers" type="update">
+                Add ability to unburrow single books
+            </action>
+		</release>
+		<release version="1.5" date="2018-04-13"
+			description="Real final description">
+			<action dev="finalizers" type="update">
+				Added sweet catageddon
+			</action>
 		</release>
 	</body>
 </document>

@@ -11,10 +11,14 @@
     <li><a th:href="@{/insertBooks}">Add a new book</a></li>
     <li><a th:href="@{/borrow}">Borrow Book</a></li>
     <li><a th:href="@{/borrowList}">Find books by borrower</a></li>
+    <li><a th:href="@{/returnSingleBook}">Return a single Book</a></li>
     <li><a th:href="@{/returnAllBooks}">Return all Books</a></li>
 </ul>
     <footer th:fragment="footer">
-        <p style="font-size:12px;" th:text="${'Version: ' + @environment.getProperty('info.version')}"></p>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,size=small,type=png)}"/>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,type=gif)}"/>
+        <img th:src="@{http://thecatapi.com/api/images/get(format=src,size=small,type=jpg)}"/>
+        <p style="font-size:12px;" th:text="${'Version: ' + @environment.getProperty('info.version') + ' ISO CERTIFIED!!!!!!!!!!!!!!!!'}"></p>
     </footer>
 </body>
 </html>

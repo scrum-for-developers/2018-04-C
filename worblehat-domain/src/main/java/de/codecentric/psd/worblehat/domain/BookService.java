@@ -15,6 +15,8 @@ public interface BookService {
 
     Optional<Book> findBookById(String id);
 
+    void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
+
     Optional<Borrowing> borrowBook(String isbn, String borrower);
 
     Set<Book> findBooksByIsbn(String isbn);
@@ -29,4 +31,7 @@ public interface BookService {
     void deleteAllBooks();
 
     void deleteBook(Book book);
+
+	  Set<Book> findBooksByEdition(String edition);
+
 }
