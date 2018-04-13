@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Return a single Book - Worblehat Bookmanager</title>
+</head>
+<body>
+	<h1>Return a single Book identified by ISBN and/or Title</h1>
+
+	<form th:object="${returnSingleBookFormData}" method="POST">
+		 Email Address:<input id="emailAddress" type="text" th:field="*{emailAddress}" />
+		<span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></span>
+		<br />
+		 ISBN:<input id="isbn" type="text" th:field="*{isbn}" /> and/or
+		<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"></span>
+		<br />
+		 Title:<input id="title" type="text" th:field="*{title}" />
+		<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+		<br />
+		<input type="submit" id="returnSingleBook" value="Return a single Book" />
+
+	</form>
+
+	<hr />
+	<a th:href="@{/}">Back to Home</a>
+	<footer th:include="home::footer"></footer>
+</body>
+</html>

@@ -95,6 +95,18 @@ public class StandardBookServiceTest {
     }
 
     @Test
+    public void shouldReturnSingleBookByIsbnOfOnePerson() {
+        bookService.returnSingleBookByBorrower(BORROWER_EMAIL, "isbn2", null);
+        verify(borrowingRepository).delete(anotherBorrowing);
+    }
+
+    @Test
+    public void shouldReturnSingleBookByTitleOfOnePerson() {
+        bookService.returnSingleBookByBorrower(BORROWER_EMAIL, null, "title2");
+        verify(borrowingRepository).delete(anotherBorrowing);
+    }
+
+    @Test
     public void shouldSaveBorrowingWithBorrowerEmail() {
         givenALibraryWith(aBook);
         ArgumentCaptor<Borrowing> borrowingArgumentCaptor = ArgumentCaptor.forClass(Borrowing.class);

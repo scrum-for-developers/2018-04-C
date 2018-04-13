@@ -13,6 +13,8 @@ public interface BookService {
 
     void returnAllBooksByBorrower(String string);
 
+    void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
+
     Optional<Borrowing> borrowBook(String isbn, String borrower);
 
     Set<Book> findBooksByIsbn(String isbn);
