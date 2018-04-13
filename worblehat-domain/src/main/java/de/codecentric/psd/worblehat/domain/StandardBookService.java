@@ -81,6 +81,11 @@ public class StandardBookService implements BookService {
     }
 
     @Override
+    public Optional<Book> findBookById(String id) {
+        return bookRepository.findById(Long.parseLong(id));
+    }
+
+    @Override
     public boolean bookExists(String isbn) {
         Set<Book> books = bookRepository.findByIsbn(isbn);
         return !books.isEmpty();

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Borrow book - Worblehat Bookmanager</title>
+</head>
+<body>
+<h1>Borrow Book</h1>
+
+<form th:object="${bookDeleteFormData}" method="POST">
+    <input id="isbn" type="hidden" th:field="*{id}" />
+    <p th:text="${'Delete book with ISBN ' + isbn + '?'}"></p>
+    <br />
+    <input type="submit" id="deleteBook" value="Delete book" />
+    <hr />
+    <a th:href="@{/}">Back to Home</a>
+</form>
+<footer th:include="home::footer"></footer>
+</body>
+</html>

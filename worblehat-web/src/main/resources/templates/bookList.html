@@ -14,6 +14,7 @@
 			<th>ISBN</th>
 			<th>Description</th>
 			<th>Borrower</th>
+            <th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,6 +26,7 @@
 			<td th:text="${book.isbn}">123456</td>
 			<td th:text="${book.description}">what an awesome story</td>
 			<td th:text="${book?.borrowing?.borrowerEmailAddress}">someone@codecentric.de</td>
+            <th><a th:href="${'/worblehat/bookDelete/' + book.id}">delete book</a></th>
 		</tr>
 	</tbody>
 	</table>
