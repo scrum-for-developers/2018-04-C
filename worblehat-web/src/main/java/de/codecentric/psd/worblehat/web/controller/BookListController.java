@@ -26,6 +26,11 @@ public class BookListController {
     @RequestMapping(method = RequestMethod.GET)
     public String setupForm(ModelMap modelMap) {
         List<Book> books = bookService.findAllBooks();
+        for(Book book:books) {
+            if (book.getDescription()!= null && book.getDescription().length() > 100) {
+                book.setDescription(book.getDescription().substring(0, 99) + "...");
+            }
+        }
         modelMap.addAttribute("books", books);
         return "bookList";
     }
