@@ -31,8 +31,7 @@ public class StandardBookService implements BookService {
 
     @Override
     public List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress) {
-        List<Borrowing> borrowingsByUser = borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
-        return borrowingsByUser;
+        return borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
     }
 
     @Override
