@@ -59,6 +59,9 @@
 		</release>
 		<release version="1.4" date="2018-04-13"
 			description="MUHAHA we are done">
+            <action dev="betaworblers" type="update">
+                Updated ISBN handling to enable customer to copy amazon ISBN numbers without complications.
+            </action>
 		</release>
 	</body>
 </document>
