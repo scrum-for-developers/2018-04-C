@@ -7,23 +7,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 /**
  * Form data object from the borrow view.
  */
-public class BookBorrowFormData {
-
-	@NotEmpty
-	@ISBN
-	private String isbn;
+public class BookBorrowListFormData {
 
 	@NotEmpty
 	@Email
 	private String email;
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
 
 	public String getEmail() {
 		return email;

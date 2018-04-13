@@ -9,9 +9,11 @@ import java.util.Set;
  */
 public interface BookService {
 
-    void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
+    List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress);
 
-    void returnAllBooksByBorrower(String borrowerEmailAddress);
+    void returnAllBooksByBorrower(String string);
+
+    void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title);
 
     Optional<Borrowing> borrowBook(String isbn, String borrower);
 
@@ -19,7 +21,8 @@ public interface BookService {
 
     List<Book> findAllBooks();
 
-    Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication);
+    Optional<Book> createBook(String title, String author, String edition, String isbn, int yearOfPublication,
+            String description);
 
     boolean bookExists(String isbn);
 

@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class StandardBookService implements BookService {
 
     public StandardBookService() {
-
+        // Do nothing because of other Constructor
     }
 
     @Autowired
@@ -30,14 +30,9 @@ public class StandardBookService implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    public void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title) {
+    public List<Borrowing> getAllBooksByBorrower(String borrowerEmailAddress) {
         List<Borrowing> borrowingsByUser = borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
-        for (Borrowing borrowing : borrowingsByUser) {
-            if ((isbn != null && borrowing.getBorrowedBook().getIsbn().equals(isbn))
-                || (title != null && borrowing.getBorrowedBook().getTitle().equals(title))) {
-                borrowingRepository.delete(borrowing);
-            }
-        }
+        return borrowingsByUser;
     }
 
     @Override
@@ -45,6 +40,17 @@ public class StandardBookService implements BookService {
         List<Borrowing> borrowingsByUser = borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
         for (Borrowing borrowing : borrowingsByUser) {
             borrowingRepository.delete(borrowing);
+        }
+    }
+
+    @Override
+    public void returnSingleBookByBorrower(String borrowerEmailAddress, String isbn, String title) {
+        List<Borrowing> borrowingsByUser = borrowingRepository.findBorrowingsByBorrower(borrowerEmailAddress);
+        for (Borrowing borrowing : borrowingsByUser) {
+            if ((isbn != null && borrowing.getBorrowedBook().getIsbn().equals(isbn))
+                || (title != null && borrowing.getBorrowedBook().getTitle().equals(title))) {
+                borrowingRepository.delete(borrowing);
+            }
         }
     }
 
@@ -73,8 +79,8 @@ public class StandardBookService implements BookService {
 
     @Override
     public Optional<Book> createBook(@Nonnull String title, @Nonnull String author, @Nonnull String edition,
-            @Nonnull String isbn, int yearOfPublication) {
-        Book book = new Book(title, author, edition, isbn, yearOfPublication);
+            @Nonnull String isbn, int yearOfPublication, @Nonnull String description) {
+        Book book = new Book(title, author, edition, isbn, yearOfPublication, description);
 
         Optional<Book> bookFromRepo = bookRepository.findTopByIsbn(isbn);
 

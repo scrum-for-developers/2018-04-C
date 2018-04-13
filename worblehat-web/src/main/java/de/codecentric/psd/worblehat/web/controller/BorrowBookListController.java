@@ -1,7 +1,6 @@
 package de.codecentric.psd.worblehat.web.controller;
 
-import java.util.Optional;
-import java.util.Set;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,50 +12,42 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.domain.BookService;
 import de.codecentric.psd.worblehat.domain.Borrowing;
-import de.codecentric.psd.worblehat.web.formdata.BookBorrowFormData;
+import de.codecentric.psd.worblehat.web.formdata.BookBorrowListFormData;
 
 /**
  * Controller for BorrowingBook
  */
-@RequestMapping("/borrow")
+@RequestMapping("/borrowList")
 @Controller
-public class BorrowBookController {
+public class BorrowBookListController {
 
     private BookService bookService;
 
-    private static final String BORROW = "borrow";
+    private static final String BORROWLIST = "borrowList";
 
     @Autowired
-    public BorrowBookController(BookService bookService) {
+    public BorrowBookListController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public void setupForm(final ModelMap model) {
-        model.put("borrowFormData", new BookBorrowFormData());
+        model.put("borrowListFormData", new BookBorrowListFormData());
     }
 
     @Transactional
     @RequestMapping(method = RequestMethod.POST)
-    public String processSubmit(@ModelAttribute("borrowFormData") @Valid BookBorrowFormData borrowFormData,
-            BindingResult result) {
+    public String processSubmit(final ModelMap model,
+            @ModelAttribute("borrowListFormData") @Valid BookBorrowListFormData borrowFormData, BindingResult result) {
         if (result.hasErrors()) {
-            return BORROW;
+            return BORROWLIST;
         }
-        Set<Book> books = bookService.findBooksByIsbn(borrowFormData.getIsbn());
-        if (books.isEmpty()) {
-            result.rejectValue("isbn", "noBookExists");
-            return BORROW;
-        }
-        Optional<Borrowing> borrowing = bookService.borrowBook(borrowFormData.getIsbn(), borrowFormData.getEmail());
+        List<Borrowing> borrowList = bookService.getAllBooksByBorrower(borrowFormData.getEmail());
+        model.put(BORROWLIST, borrowList);
 
-        return borrowing.map(b -> "home").orElseGet(() -> {
-            result.rejectValue("isbn", "noBorrowableBooks");
-            return BORROW;
-        });
+        return BORROWLIST;
     }
 
     @ExceptionHandler(Exception.class)
