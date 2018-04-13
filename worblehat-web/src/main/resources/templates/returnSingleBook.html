@@ -16,6 +16,8 @@
 		 Title:<input id="title" type="text" th:field="*{title}" />
 		<span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
 		<br />
+		 <span th:utext="${nichtGefunden}" />
+		<br />
 		<input type="submit" id="returnSingleBook" value="Return a single Book" />
 
 	</form>

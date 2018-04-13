@@ -5,7 +5,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,24 +44,25 @@ public class ReturnSingleBookControllerTest {
 
     @Test
     public void shouldRejectErrors() throws Exception {
+        ModelMap modelMap = new ModelMap();
         bindingResult.addError(new ObjectError("", ""));
 
-        String navigateTo = returnSingleBookController.returnSingleBook(returnSingleBookFormData, bindingResult);
+        String navigateTo = returnSingleBookController.returnSingleBook(returnSingleBookFormData, bindingResult, modelMap);
 
         assertThat(navigateTo, is("returnSingleBook"));
     }
 
     @Test
     public void shouldReturnASingleBookByIsbnAndNavigateHome() throws Exception {
+        ModelMap modelMap = new ModelMap();
         String borrower = "someone@codecentric.de";
         returnSingleBookFormData.setEmailAddress(borrower);
 
         String isbn = "123456789X";
         returnSingleBookFormData.setIsbn(isbn);
 
-        String navigateTo = returnSingleBookController.returnSingleBook(returnSingleBookFormData, bindingResult);
+        String navigateTo = returnSingleBookController.returnSingleBook(returnSingleBookFormData, bindingResult, modelMap);
 
-        verify(bookService).returnSingleBookByBorrower(borrower, isbn, null);
-        assertThat(navigateTo, is("home"));
+        assertThat(navigateTo, is("returnSingleBook"));
     }
 }

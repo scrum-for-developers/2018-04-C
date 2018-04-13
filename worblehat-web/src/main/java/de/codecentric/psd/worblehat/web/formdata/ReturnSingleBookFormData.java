@@ -16,6 +16,22 @@ public class ReturnSingleBookFormData {
 
     private String title;
 
+    private String nichtGefunden;
+
+    /**
+     * @return the nichtGefunden
+     */
+    public String getNichtGefunden() {
+        return nichtGefunden;
+    }
+
+    /**
+     * @param nichtGefunden the nichtGefunden to set
+     */
+    public void setNichtGefunden(String nichtGefunden) {
+        this.nichtGefunden = nichtGefunden;
+    }
+
     /**
      * @return the isbn
      */
