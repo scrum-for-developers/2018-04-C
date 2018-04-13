@@ -71,6 +71,12 @@
 			<action dev="finalizers" type="update">
 				Added sweet catageddon
 			</action>
+			<action dev="finalizers" type="update">
+				ISO ISBN
+			</action>
+			<action dev="finalizers" type="update">
+				Shorten Description
+			</action>
 		</release>
 	</body>
 </document>
