@@ -70,4 +70,5 @@ public class BookTest {
         BOOK.borrowNowByBorrower("a@bc.de");
         assertThat(BOOK.isBorrowed(), is(true));
     }
+
 }

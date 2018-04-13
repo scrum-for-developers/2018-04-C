@@ -25,4 +25,6 @@ public interface BookService {
     boolean bookExists(String isbn);
 
     void deleteAllBooks();
+
+    void deleteBook(Book book) throws BookAlreadyBorrowedException;
 }

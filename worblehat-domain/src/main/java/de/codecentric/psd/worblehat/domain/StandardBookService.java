@@ -92,4 +92,12 @@ public class StandardBookService implements BookService {
         bookRepository.deleteAll();
     }
 
+    @Override
+    public void deleteBook(Book book) throws BookAlreadyBorrowedException {
+        if (book.isBorrowed()) {
+            throw new BookAlreadyBorrowedException("Book is already borrowed.");
+        }
+        // TODO
+    }
+
 }

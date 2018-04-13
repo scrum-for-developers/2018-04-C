@@ -210,4 +210,12 @@ public class StandardBookServiceTest {
         verify(bookRepository).deleteAll();
         verify(borrowingRepository).deleteAll();
     }
+
+    @Test
+    public void shouldDeleteANonBorrowedBook() {
+        // TODO
+    }
+
+
+
 }

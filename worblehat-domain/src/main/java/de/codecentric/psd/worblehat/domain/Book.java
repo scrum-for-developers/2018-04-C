@@ -143,4 +143,5 @@ public class Book implements Serializable {
         return "Book{" + "title='" + title + '\'' + ", author='" + author + '\'' + ", edition='" + edition + '\'' + ", isbn='"
             + isbn + '\'' + ", yearOfPublication=" + yearOfPublication + '\'' + ", description=" + description + '}';
     }
+
 }
