@@ -66,7 +66,7 @@
                 Add ability to unburrow single books
             </action>
 		</release>
-		<release version="1.5" date="2018-04-13"
+		<release version="9.99" date="2018-04-13"
 			description="Real final description">
 			<action dev="finalizers" type="update">
 				Added sweet catageddon
